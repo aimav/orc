@@ -361,12 +361,11 @@
       sendBtn.disabled = loading || !msgInput.value.trim();
     });
     updateKeyBtn();
-    var log = console.log;
 
     setTimeout(()=>{
         var q = new URL(location.href).searchParams.get("q");
-        log("URL:",location.href);
-        log("q:",q);
+        console.log("URL:",location.href);
+        console.log("q:",q);
       
         if (q!=null && q.trim().length>0){
           d$("#key-input").value = q;
