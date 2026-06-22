@@ -249,6 +249,23 @@
       sendBtn.disabled = val || !msgInput.value.trim();
     }
 
+    //
+    function tidyUpMarkdown(str){
+      var lines = str.split("\n");
+      var newLines = [];
+
+      for (let i=0; i<lines.length; i++){
+        if (lines[i].trim().length==0 && lines[i+1]!=null && lines[i+1].trim().length==0)
+          continue;
+
+        newLines.push(lines[i]);
+      }
+      if (newLines[0]!=null && newLines[0].trim().length==0)
+        return newLines.slice(1).join("\n");
+      else
+        return newLines.join("\n");
+    }
+
     async function sendMessage() {
       const text = msgInput.value.trim();
       if (!text || loading) return;
@@ -305,6 +322,7 @@
               const delta = json.choices?.[0]?.delta?.content;
               if (delta) {
                 raw += delta;
+                raw = tidyUpMarkdown(raw);
                 typingBubble.innerHTML = marked.parse(raw);
                 log.scrollTop = log.scrollHeight;
               }
