@@ -57,7 +57,12 @@
     }
     .row { display: flex; }
     .row.user { justify-content: flex-end; }
-    .row.assistant { justify-content: flex-start; }
+    .row.assistant { 
+      justify-content: flex-start; display:flex; flex-direction:column;
+    }
+    table th, table td {
+      border:1px solid silver;
+    }
     .bubble {
       max-width: 75%;
       padding: 10px 14px;
