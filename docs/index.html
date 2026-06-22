@@ -76,9 +76,9 @@
       background: #1a73e8;
       color: #fff;
       border-radius: 16px 16px 4px 16px;
-    }
+    }    
     .bubble.assistant {
-      background: #fff;
+      background: #fff; white-space:initial;
       color: #1a1a1a;
       border: 1px solid #e0e0e0;
       border-radius: 16px 16px 16px 4px;
@@ -322,7 +322,7 @@
               const delta = json.choices?.[0]?.delta?.content;
               if (delta) {
                 raw += delta;
-                raw = tidyUpMarkdown(raw);
+                // raw = tidyUpMarkdown(raw);
                 typingBubble.innerHTML = marked.parse(raw);
                 log.scrollTop = log.scrollHeight;
               }
