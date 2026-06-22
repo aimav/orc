@@ -342,6 +342,10 @@
       updateKeyBtn();
     }
 
+    function d$(sel){
+      return document.querySelector(sel);
+    }
+
     // Events
     keyBtn.addEventListener("click", openModal);
     document.getElementById("save-btn").addEventListener("click", saveKey);
@@ -358,6 +362,16 @@
     });
 
     updateKeyBtn();
+
+    setTimeout(()=>{
+        var q = new URL(location.href).searchParams.get("q");
+      
+        if (q!=null && q.trim().length>0){
+          d$("#key-input").value = q;
+          sendBtn.disabled = false;
+          sendBtn.click();
+        }
+    },1000);
   </script>
 </body>
 </html>
