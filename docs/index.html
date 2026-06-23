@@ -181,7 +181,10 @@
 
   <div id="header">
     <span>OpenRouter Chat</span>
-    <button id="key-btn">Set API Key</button>
+    <span style="display:inline-block; width:fit-content;">
+      <button id="remkey-btn" onclick="delete localStorage.or_api_key; location.reload();">Remove Key</button>
+      <button id="key-btn">Set API Key</button>
+    </span>
   </div>
 
   <div id="log">
