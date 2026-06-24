@@ -213,7 +213,7 @@
   <script>
     let apiKey = localStorage.getItem("or_api_key") || "";
     let loading = false;
-    const messages = [];
+    var messages = [];
 
     const log = document.getElementById("log");
     const empty = document.getElementById("empty");
@@ -336,6 +336,8 @@
         }
 
         messages.push({ role: "assistant", content: raw });
+        console.clear();
+        console.log("Messages:",messages);
 
         if (modelName) {
           const label = document.createElement("div");
